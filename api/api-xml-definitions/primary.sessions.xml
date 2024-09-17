@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sessions>
+    <table name="users">
+        <field api_field="id">id</field><!-- Required -->
+        <field api_field="username">username</field><!-- Required -->
+        <field api_field="email">email</field>
+        <field api_field="password" encrypt="md5">password</field> <!-- (REQUIRED) support encryptions include md5 and password -->
+        <field api_field="access_country_restriction">access_country_restriction</field>
+        <field api_field="created_date">created_date</field>
+        <field api_field="status">status</field>
+    </table>
+    <access mode="ro" /> <!-- supported access are read only (ro) and read write (rw) -->
+</sessions>

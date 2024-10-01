@@ -3,19 +3,19 @@ services:
   api:
     image: xahlijah/afriqom-api:v1.0.0
     environment:
-      - DATABASE_SERVER=databoardserver.mysql.database.azure.com
-      - DATABASE_NAME=afriqom
-      - DATABASE_USER=databoard_admin
-      - DATABASE_PASSWORD=Sqlserver5
+      - DATABASE_SERVER=''
+      - DATABASE_NAME=''
+      - DATABASE_USER=''
+      - DATABASE_PASSWORD=''
       - DATABASE_PORT=3306
-      - ROLES_DATABASE_NAME=afriqom_roles
+      - ROLES_DATABASE_NAME=''
     volumes:
       - ./logs/:/logs/
       - ./cdn/:/app/api/cdn/
   web:
     image: xahlijah/afriqom-web:v1.0.0
   nginx:
-    image: xahlijah/afriqom-nginx:v1.0.0
+    image: xahlijah/afriqom-nginx:v1.0.1
     ports:
       - 80:80
       - 443:443

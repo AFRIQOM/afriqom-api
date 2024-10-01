@@ -1,0 +1,43 @@
+version: '3.2'
+services:
+  api:
+    image: xahlijah/afriqom-api:alpha
+    environment:
+      - DATABASE_SERVER=mysql-db
+      - DATABASE_NAME=afriqom
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=Afriqom@1234
+      - DATABASE_PORT=3306
+      - ROLES_DATABASE_NAME=afriqom_roles
+    volumes:
+      - ./logs/:/logs/
+      - ./cdn/:/app/api/cdn/
+    depends_on:
+      - mysql-db
+  web:
+    image: xahlijah/afriqom-web:alpha
+  nginx:
+    image: xahlijah/afriqom-nginx:alpha
+    ports:
+      - 80:80
+      - 443:443
+  mysql-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: Afriqom@1234
+      MYSQL_DATABASE: afriqom
+      MYSQL_USER: afriqom
+      MYSQL_PASSWORD: Afriqom@1234
+    ports:
+      - "3306:3306"
+    volumes:
+        - ./volumes/mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql-db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql-db
+      MYSQL_ROOT_PASSWORD: Afriqom@1234

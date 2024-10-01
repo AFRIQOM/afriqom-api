@@ -83,6 +83,7 @@ This guide will take you through the process of setting up Docker and Docker Com
    ```
 
    Note: Replace &lt;docker-repo&gt; with a valid repo name.
+   Additional Notes: When SSL certificate in renewed, replace the content of deploy/nginx/ssl/ (take note of the filenames and replace them as-is). After files are replaced, re-run the NGINX Build command above.
 
 ## Step 4: Start Services with Docker Compose
 
